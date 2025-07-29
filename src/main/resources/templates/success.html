@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+		<head>
+			<title>Sucesso</title>
+		</head>
+		<body>
+			<h1>Registro de Usuário Concluído com Sucesso</h1>
+			<div>
+				<p>Nome: <span th:text="${user.nome}"/></p>
+				<p>Email: <span th:text="${user.email}"/></p>
+			</div>
+			<a th:href="@{/register}">Cadastrar</a>
+		</body>
+</html>

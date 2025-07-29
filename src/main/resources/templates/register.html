@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro</title>
+    <style>
+        .error { color: red; }
+        .is-invalid { border: 1px solid red; }
+    </style>
+</head>
+<body>
+    <h1>Registro de Usuário</h1>
+    <form th:action="@{/register}" method="post" th:object="${user}">
+        <div>
+            <label>Nome:</label>
+            <input type="text" th:field="*{nome}" 
+                   th:classappend="${#fields.hasErrors('nome')} ? 'is-invalid'">
+            <p class="error" th:if="${#fields.hasErrors('nome')}" 
+               th:errors="*{nome}"></p>
+        </div>
+        
+        <div>
+            <label>Email:</label>
+            <input type="email" th:field="*{email}"
+                   th:classappend="${#fields.hasErrors('email')} ? 'is-invalid'">
+            <p class="error" th:if="${#fields.hasErrors('email')}" 
+               th:errors="*{email}"></p>
+        </div>
+        
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
